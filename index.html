@@ -7,6 +7,7 @@
 
 <center><i><b>Welcome to the jungle. We have fun and games.</b></i></center>
 <p></p>
+<p id="Conexao"></p>
 
 <script src="https://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js">
 </script>
@@ -63,6 +64,7 @@
         window.customMessageBus = window.castReceiverManager.getCastMessageBus(namespace);
         window.customMessageBus.onMessage = onMessage;
 
+	document.getElementById("Conexao").innerHTML=onMessage.toString();
 
         window.castReceiverManager.start();
 
@@ -73,7 +75,7 @@
 
 	function onTimer()
 	{
-	    broadcast("timer");
+	    broadcast("Hello");
 	}
 
     function broadcast(message)
