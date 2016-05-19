@@ -33,6 +33,8 @@
     function onChannelOpened(event)
     {
         log("onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length);
+        var string = "onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length;
+        document.getElementById("Conexao").innerHTML = string.toString();
     }
 
     function onChannelClosed(event)
