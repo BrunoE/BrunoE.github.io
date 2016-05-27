@@ -5,10 +5,6 @@
     <title>CromeCast Connect</title>
 </head>
 
-<center><i><b>Welcome to the jungle. We have fun and games.</b></i></center>
-<p></p>
-<p id="Conexao"></p>
-
 <script src="https://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js">
 </script>
 
@@ -17,15 +13,58 @@
   var app_id = "1AA02BA5";
   var namespace = "urn:x-cast:com.example.chrome_send_world_2";
   
+  function onError()
+    {
+        var string = "Algo aconteceu";
+        document.getElementById("Conexao").innerHTML = string.toString();
+    }
   
+  function onChannelOpened(event)
+    {
+        var string = "onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length;
+        document.getElementById("Conexao").innerHTML = string.toString();
+    }
+
+    function onChannelClosed(event)
+    {
+        log("onChannelClosed. Total number of channels: " + window.castReceiverManager.getSenders().length);
+        if (window.castReceiverManager.getSenders().length == 0) window.close();
+    }
+  
+  function onLoad()
+	{
+        window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+
+        window.castReceiverManager.onSenderConnected = onChannelOpened;
+        window.castReceiverManager.onSenderDisconnected = onChannelClosed;
+
+        window.customMessageBus = window.castReceiverManager.getCastMessageBus(namespace);
+        window.customMessageBus.onMessage = onMessage;
+
+        window.castReceiverManager.start();
+
+    	window.setInterval(onTimer, 2000);
+	}
+	
+	function onMessage(event)
+    {
+        var message = event.data;
+        var senderId = event.senderId;
+        document.getElementById("Conexao").innerHTML = "Entrou Aqui";
+    }
+	
+	function onTimer()
+	{
+	    broadcast("Hello");
+	}
   
   window.addEventListener("load", onLoad);
 </script>
 
 <body>
-    <div id="root" style="position:absolute; top:0; left:0; height:100%; width:100%; color:#FFFFFF;" />
-        chromecast demo<br>
-    </div>
+    <center><i><b>Welcome to the jungle. We have fun and games.</b></i></center>
+    <p></p>
+    <p id="Conexao"></p>
 </body>
 
 </html>
