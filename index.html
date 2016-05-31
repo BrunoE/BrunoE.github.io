@@ -28,7 +28,6 @@
     }
     
   function onLoad(){
-  	window.castReceiverManager = new cast.receiver.CastReceiverManager(window.castReceiverManager);
         window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 
         window.castReceiverManager.onSenderConnected = onChannelOpened;
