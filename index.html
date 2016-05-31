@@ -28,6 +28,7 @@
     }
     
   function onLoad(){
+  	window.castReceiverManager = new cast.receiver.CastReceiverManager(window.castReceiverManager);
         window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 
         window.castReceiverManager.onSenderConnected = onChannelOpened;
@@ -37,13 +38,6 @@
         window.customMessageBus.onMessage = onMessage;
 
         window.castReceiverManager.start();
-        
-        var applicationID = chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID;
-        var sessionRequest = new chrome.cast.SessionRequest(applicationID);
-        var apiConfig = new chrome.cast.ApiConfig(sessionRequest,
-                sessionListener,
-                receiverListener);
-        chrome.cast.initialize(apiConfig, onInitSuccess, onInitError);
 
     	window.setInterval(onTimer, 2000);
   }
