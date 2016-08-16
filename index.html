@@ -15,7 +15,7 @@
 <script type="text/javascript">
     var app_id = "1AA02BA5";
     var namespace = "urn:x-cast:com.example.chrome_send_world_2";
-    var messageReceived;
+    var messageReceived = "Hello";
     
     function log(str)
     {
@@ -52,6 +52,7 @@
     {
         var message = event.data;
         var senderId = event.senderId;
+        messageReceived = message;
         log("message from: " + senderId + " message: " + message);
         //document.getElementById("Conexao").innerHTML = message.toString();
         document.getElementById("Conexao").innerHTML = "Entrou Aqui";
@@ -78,7 +79,7 @@
 
 	function onTimer()
 	{
-	    broadcast("Hello");
+	    broadcast(messageReceived);
 	}
 
     function broadcast(message)
