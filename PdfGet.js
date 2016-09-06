@@ -110,6 +110,8 @@ function callGetDocment (response) {
         //How many pages it has
         maxPages = pdf.numPages;
 
+        window.alert(maxPages);
+
         getPages();
     });
 }
