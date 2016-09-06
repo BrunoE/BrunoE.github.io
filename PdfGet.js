@@ -11,9 +11,9 @@ var maxPages = 0;
 var pdfArray = new Array();
 
 function getFile(){
-    var url = "https://dl.dropboxusercontent.com/u/33618270/TP5.pdf";
+    //var url = "https://dl.dropboxusercontent.com/u/33618270/TP5.pdf";
 
-    //var url = "https://github.com/BrunoE/BrunoE.github.io/blob/master/Aula1_MKT.pdf";
+    var url = "https://github.com/BrunoE/BrunoE.github.io/blob/master/Aula1_MKT.pdf";
 
     //var data =
     getBinaryData(url);
