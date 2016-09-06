@@ -77,6 +77,7 @@ function getBinaryData (url) {
         if (xhr.readyState === 4){
             if (xhr.status === 200){
                 console.log(xhr.response);
+                callGetDocument(xhr.response);
             }
             else{
                 console.log("Error", xhr.statusText);
@@ -92,7 +93,7 @@ function getBinaryData (url) {
         alert(err);
     }
     if (xhr.status == 200) {
-        callGetDocment(xhr.response);
+        callGetDocument(xhr.response);
     }
     else {
         alert("Error - File not found in Dropbox public folder");
@@ -102,7 +103,7 @@ function getBinaryData (url) {
     xhr.send();
 }
 
-function callGetDocment (response) {
+function callGetDocument (response) {
 
     PDFJS.getDocument(response).then(function getPdfHelloWorld(pdf) {
         pdfFile = pdf;
