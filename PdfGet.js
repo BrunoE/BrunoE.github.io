@@ -11,13 +11,9 @@ var maxPages = 0;
 var pdfArray = new Array();
 
 function getFile(){
-    //var url = "https://dl.dropboxusercontent.com/u/33618270/TP5.pdf";
 
     var url = "https://github.com/BrunoE/BrunoE.github.io/blob/master/Aula1_MKT.pdf";
-
-    //var data =
     getBinaryData(url);
-    //readDropbox(url);
 }
 
 function getPages(){
@@ -77,21 +73,6 @@ function getBinaryData (url) {
     xhr.open('GET', url, true);
     xhr.responseType = 'arraybuffer';
 
-    xhr.setRequestHeader("User-Agent", "MyApp");
-    try {
-        xhr.send(null);
-    }
-    catch (err) {
-        alert(err);
-    }
-    if (xhr.status == 200) {
-        callGetDocment(xhr.response);
-    }
-    else {
-        alert("Error - File not found in Dropbox public folder");
-        return null;
-    }
-
     xhr.send();
 }
 
@@ -106,34 +87,3 @@ function callGetDocment (response) {
         getPages();
     });
 }
-/*function readDropbox(sURL) {
-    var oRequest = new XMLHttpRequest();
-    oRequest.open("GET",sURL);
-    oRequest.overrideMimeType("text/plain; charset=x-user-defined");
-
-    oRequest.onreadystatechange = function(oEvent) {
-        if (oRequest.readyState === 4) {
-            if (oRequest.status === 200) {
-                    console.log(oRequest.responseText);
-                }
-            else {
-                console.log("Error", oRequest.statusText);
-                }
-        }
-    }
-
-    oRequest.setRequestHeader("User-Agent", "MyApp");
-    try {
-        oRequest.send(null);
-        }
-    catch (err) {
-        alert(err);
-    }
-    if (oRequest.status == 200) {
-        return oRequest.responseText;
-    }
-    else {
-        alert("Error - File not found in Dropbox public folder");
-        return null;
-    }
-}*/
