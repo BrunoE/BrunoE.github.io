@@ -12,7 +12,7 @@ var pdfArray = new Array();
 
 function getFile(){
 
-    var url = "https://github.com/BrunoE/BrunoE.github.io/blob/master/Aula1_MKT.pdf";
+    var url = "https://dl.dropboxusercontent.com/u/33618270/TP5.pdf";
     getBinaryData(url);
 }
 
@@ -70,10 +70,21 @@ function getBinaryData (url) {
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url, true);
+    xhr.open('GET', url, false);
     xhr.responseType = 'arraybuffer';
+    
+    xhr.onreadystatechange = function(oEvent){
+        if (xhr.readyState === 4){
+            if (xhr.status === 200){
+                console.log(xhr.response);
+            }
+            else{
+                console.log("Error", xhr.statusText);
+            }
+        }
+    }
 
-    xhr.setRequestHeader("User-Agent", "https://BrunoE.github.io");
+    xhr.setRequestHeader("User-Agent", navigator.userAgent);
     try {
         xhr.send(null);
     }
