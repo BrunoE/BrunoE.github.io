@@ -50,7 +50,7 @@ function changePage(page){
 
     // Fetch the first page
     var scale = 0.8;
-    var viewport = page.getViewport(scale);
+    var viewport = page.getViewport(options.scale);
 
     // Prepare canvas using PDF page dimensions
     var canvas = document.getElementById('canvas');
@@ -110,8 +110,6 @@ function callGetDocument (response) {
 
         //How many pages it has
         maxPages = pdfFile.numPages;
-        
-        window.alert(maxPages);
 
         getPages();
     });
