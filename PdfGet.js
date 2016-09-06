@@ -108,7 +108,9 @@ function callGetDocment (response) {
         pdfFile = pdf;
 
         //How many pages it has
-        maxPages = pdf.numPages;
+        maxPages = pdfFile.numPages;
+        
+        window.alert(maxPages);
 
         getPages();
     });
