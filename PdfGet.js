@@ -72,6 +72,25 @@ function getBinaryData (url) {
 
     xhr.open('GET', url, true);
     xhr.responseType = 'arraybuffer';
+    
+    oRequest.setRequestHeader("User-Agent", "MyApp");//navigator.userAgent);
+        try
+        {
+            oRequest.send(null);
+        }
+        catch (err)
+        {
+            alert(err);
+        }
+        if (oRequest.status == 200)
+        {
+            return oRequest.responseText;
+        }
+        else
+        {
+            alert("Error - File not found in Dropbox public folder");
+            return null;
+        }
 
     xhr.send();
 }
