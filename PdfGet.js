@@ -70,7 +70,7 @@ function getBinaryData (url) {
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url, false);
+    xhr.open('GET', url, true);
     xhr.responseType = 'arraybuffer';
     
     xhr.onreadystatechange = function(oEvent){
