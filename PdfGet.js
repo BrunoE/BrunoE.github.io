@@ -20,7 +20,6 @@ function getPages(){
     var i;
     var page;
     
-    window.alert(pdfFile.numPages);
     for(i=0;i<maxPages;i++){
         page = i+1;
         pdfFile.getPage(page).then(function getPageHelloWorld(page) {
