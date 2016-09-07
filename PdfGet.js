@@ -19,6 +19,8 @@ function getFile(){
 function getPages(){
     var i;
     var page;
+    
+    window.alert(pdfFile.numPages);
     for(i=0;i<maxPages;i++){
         page = i+1;
         pdfFile.getPage(page).then(function getPageHelloWorld(page) {
@@ -50,7 +52,7 @@ function changePage(page){
 
     // Fetch the first page
     var scale = 0.8;
-    var viewport = page.getViewport(options.scale);
+    var viewport = page.getViewport(scale);
 
     // Prepare canvas using PDF page dimensions
     var canvas = document.getElementById('canvas');
@@ -83,21 +85,6 @@ function getBinaryData (url) {
                 console.log("Error", xhr.statusText);
             }
         }
-    }
-
-    xhr.setRequestHeader("User-Agent", navigator.userAgent);
-    try {
-        xhr.send(null);
-    }
-    catch (err) {
-        alert(err);
-    }
-    if (xhr.status == 200) {
-        callGetDocument(xhr.response);
-    }
-    else {
-        alert("Error - File not found in Dropbox public folder");
-        return null;
     }
 
     xhr.send();
