@@ -12,7 +12,7 @@ var pdfArray = new Array();
 
 function getFile(){
 
-    var url = "https://www.dropbox.com/home?preview=Aula1_MKT.pdf";
+    var url = "https://www.dropbox.com/s/mklsnweowm89yxn/Aula1_MKT.pdf?dl=0";
     getBinaryData(url);
 }
 
