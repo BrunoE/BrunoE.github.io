@@ -52,9 +52,7 @@
     {
         var message = event.data;
         var senderId = event.senderId;
-        log("message from: " + senderId + " message: " + message);
-        //document.getElementById("Conexao").innerHTML = message.toString();
-        document.getElementById("Conexao").innerHTML = "Entrou Aqui";
+        log(" message: " + message);
     }
 
     function onLoad()
@@ -72,14 +70,6 @@
         window.castReceiverManager.start();
 
         log("cast started");
-
-    	window.setInterval(onTimer, 2000);
-	}
-
-	function onTimer()
-	{
-	    broadcast("Hello");
-	}
 
     function broadcast(message)
     {
