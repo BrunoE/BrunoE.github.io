@@ -21,6 +21,7 @@ function getPages(){
             pdfArray.push(page);
         });
     }
+    startPDF();
 }
 
 function openNextPage() {
