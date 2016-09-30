@@ -7,7 +7,7 @@ var maxPages = 0;
 var pdfArray = new Array();
 
 function getFile(url){
-
+    log("Chegou aqui");
     getBinaryData(url);
 }
 
