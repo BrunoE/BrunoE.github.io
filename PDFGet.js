@@ -8,6 +8,7 @@ var pdfArray = new Array();
 
 function getFile(url){
     getBinaryData(url);
+    //startPDF();
 }
 
 function getPages(){
@@ -20,7 +21,6 @@ function getPages(){
             pdfArray.push(page);
         });
     }
-    startPDF();
 }
 
 function openNextPage() {
@@ -49,7 +49,7 @@ function changePage(page){
     var viewport = page.getViewport(scale);
 
     // Prepare canvas using PDF page dimensions
-    var canvas = document.getElementById('canvas');
+    var canvas = document.querySelector('canvas');
     var context = canvas.getContext('2d');
     canvas.height = viewport.height;
     canvas.width = viewport.width;
@@ -72,7 +72,6 @@ function getBinaryData (url) {
     xhr.onreadystatechange = function(oEvent){
         if (xhr.readyState === 4){
             if (xhr.status === 200){
-                log("Chegou");
                 console.log(xhr.response);
                 callGetDocument(xhr.response);
             }
@@ -93,5 +92,6 @@ function callGetDocument (response) {
         maxPages = pdfFile.numPages;
 
         getPages();
+        log("Chegou");
     });
 }
