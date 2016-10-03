@@ -7,7 +7,6 @@ var maxPages = 0;
 var pdfArray = new Array();
 
 function getFile(url){
-    log("Chegou");
     getBinaryData(url);
 }
 
@@ -73,6 +72,7 @@ function getBinaryData (url) {
     xhr.onreadystatechange = function(oEvent){
         if (xhr.readyState === 4){
             if (xhr.status === 200){
+                log("Chegou");
                 console.log(xhr.response);
                 callGetDocument(xhr.response);
             }
@@ -81,7 +81,6 @@ function getBinaryData (url) {
             }
         }
     }
-
     xhr.send();
 }
 
