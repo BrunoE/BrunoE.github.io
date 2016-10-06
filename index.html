@@ -33,29 +33,29 @@
     }
 	
 	function onChannelOpened(event){
-		log("onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length);
+		//log("onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length);
 		var string = "onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length;
 		document.getElementById("Conexao").innerHTML = string.toString();
 	}
 	
 	function onChannelClosed(event){
-		log("onChannelClosed. Total number of channels: " + window.castReceiverManager.getSenders().length);
+		//log("onChannelClosed. Total number of channels: " + window.castReceiverManager.getSenders().length);
 		if (window.castReceiverManager.getSenders().length == 0) window.close();
 	}
 	
 	function onError(){
-		log("onError");
+		//log("onError");
 	}
 	
 	function onMessage(event){
 		var message = event.data;
 		var senderId = event.senderId;
-		log(" message: " + message);
+		//log(" message: " + message);
 		getFile(message);	
 	}
 	
 	function onLoad(){
-		log("document loaded");
+		//log("document loaded");
 		
 		window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
 		window.castReceiverManager.onSenderConnected = onChannelOpened;
@@ -65,7 +65,7 @@
 		window.customMessageBus.onMessage = onMessage;
 		
 		window.castReceiverManager.start();
-		log("cast started");
+		//log("cast started");
 	}
 	
 	function broadcast(message){
@@ -76,10 +76,7 @@
 </script>
 
 <body>
-    <div id="root" style="position:absolute; top:0; left:0; height:50%; width:50%; color:#FFFFFF;" />
-        chromecast demo<br>
-	 <canvas id="canvas_1" style="border:1px  solid white" ></canvas><br>
-    </div>
+	<canvas id="canvas_1" style="border:1px  solid white" ></canvas>
 </body>
 
 </html>
