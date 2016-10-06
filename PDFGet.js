@@ -73,7 +73,6 @@ function getBinaryData (url) {
         if (xhr.readyState === 4){
             if (xhr.status === 200){
                 console.log(xhr.response);
-                log(xhr.response);
                 callGetDocument(xhr.response);
             }
             else{
