@@ -92,6 +92,5 @@ function callGetDocument (response) {
         maxPages = pdfFile.numPages;
 
         getPages();
-        log("Chegou");
     });
 }
