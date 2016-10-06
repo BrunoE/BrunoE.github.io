@@ -73,6 +73,7 @@ function getBinaryData (url) {
         if (xhr.readyState === 4){
             if (xhr.status === 200){
                 console.log(xhr.response);
+                log("Chegou Aqui");
                 callGetDocument(xhr.response);
             }
             else{
@@ -90,7 +91,6 @@ function callGetDocument (response) {
 
         //How many pages it has
         maxPages = pdfFile.numPages;
-        log(maxPages);
         
         getPages();
     });
