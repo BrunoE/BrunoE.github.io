@@ -90,7 +90,8 @@ function callGetDocument (response) {
 
         //How many pages it has
         maxPages = pdfFile.numPages;
-
+        log(maxPages);
+        
         getPages();
     });
 }
