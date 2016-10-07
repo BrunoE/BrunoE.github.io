@@ -9,9 +9,8 @@
 <p></p>
 <p id="Conexao"></p>
 
-<script src="https://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js">
-</script>
-	
+<script src="https://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+<script src="compatibility.js"></script>	
 <script src="PDFGet.js">
 </script>
 
@@ -51,7 +50,7 @@
 		var message = event.data;
 		var senderId = event.senderId;
 		log(" message: " + message);
-		getFile(message);	
+		getFile();	
 	}
 	
 	function onLoad(){
