@@ -10,9 +10,7 @@ var currPageNumber = 1;
 var maxPages = 0;
 var pdfArray = new Array();
 
-function getFile(){
-
-    var url = "https://dl.dropbox.com/s/mklsnweowm89yxn/Aula1_MKT.pdf";
+function getFile(url){
     getBinaryData(url);
 }
 
@@ -98,5 +96,6 @@ function callGetDocument (response) {
         maxPages = pdfFile.numPages;
 
         getPages();
+        startPDF();
     });
 }
