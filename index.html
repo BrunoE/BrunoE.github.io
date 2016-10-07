@@ -2,19 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PDF - GET</title>
+    <title>CromeCast Connect</title>
 </head>
 
-<script src="build/pdf.js"></script>
-<script src="PdfGet.js"></script>
+<center><i><b>Welcome to the jungle. We have fun and games.</b></i></center>
+<p></p>
+<p id="Conexao"></p>
+
+<script src="https://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js">
+</script>
+	
+<script src="PDFGet.js">
+</script>
+
+<script type="text/javascript">
+    var app_id = "1AA02BA5";
+    var namespace = "urn:x-cast:com.example.chrome_send_world_2";
+    var messageReceived;
+    
+    function log(str){
+	    console.log(str);
+	    
+	    var newSpan = document.createElement("span");
+	    var newContent = document.createTextNode(str);
+	    newSpan.appendChild(newContent);
+	    
+	    var root = document.getElementById("root");
+	    root.appendChild(newSpan);
+	    root.appendChild(document.createElement("br"));
+    }
+	
+	function onChannelOpened(event){
+		log("onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length);
+		var string = "onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length;
+		document.getElementById("Conexao").innerHTML = string.toString();
+	}
+	
+	function onChannelClosed(event){
+		log("onChannelClosed. Total number of channels: " + window.castReceiverManager.getSenders().length);
+		if (window.castReceiverManager.getSenders().length == 0) window.close();
+	}
+	
+	function onError(){
+		log("onError");
+	}
+	
+	function onMessage(event){
+		var message = event.data;
+		var senderId = event.senderId;
+		log(" message: " + message);
+		getFile(message);	
+	}
+	
+	function onLoad(){
+		log("document loaded");
+		
+		window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+		window.castReceiverManager.onSenderConnected = onChannelOpened;
+		window.castReceiverManager.onSenderDisconnected = onChannelClosed;
+		
+		window.customMessageBus = window.castReceiverManager.getCastMessageBus(namespace);
+		window.customMessageBus.onMessage = onMessage;
+		
+		window.castReceiverManager.start();
+		log("cast started");
+	}
+	
+	function broadcast(message){
+		window.customMessageBus.broadcast(message);
+	}
+	
+	window.addEventListener("load", onLoad);
+</script>
 
 <body>
-    <canvas id="canvas" style="border:1px  solid black" ></canvas>
-    <p></p>
-    <button onclick="getFile()">Download</button>
-    <button onclick="startPDF()">Start Presentation</button>
-    <button onclick="openPrevPage()">Previous Page</button>
-    <button onclick="openNextPage()">Next Page</button>
+	<canvas id="canvas_1" style="border:1px  solid white" ></canvas>
+	<div id="root" style="position:absolute; top:0; left:0; height:50%; width:50%; color:#FFFFFF;" />
+        chromecast demo<br>
+    </div>
 </body>
 
 </html>
