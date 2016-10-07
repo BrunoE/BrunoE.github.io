@@ -50,6 +50,9 @@
 		var message = event.data;
 		var senderId = event.senderId;
 		log(" message: " + message);
+		if(message == "Start"){
+			startPDF();
+		}
 		getFile(message);	
 	}
 	
