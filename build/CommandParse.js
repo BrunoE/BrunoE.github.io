@@ -1,9 +1,15 @@
 function whatCommand(message){
-    if(message.indexOf("https://dl") != -1){
-        getBinaryData(message);
+    if(message == "Start"){
+			startPDF();
+		}
+    else if(message.indexOf("https://dl") != -1){
+        getFile(message);
     }
-}
-
-function modeSelect(message, mode){
-
+    
+   else if(message == "backwards"){
+       openPrevPage()
+   }
+    else if(message == "forwards"){
+        openNextPage()
+    }
 }
