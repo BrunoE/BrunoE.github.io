@@ -1,7 +1,7 @@
 function whatCommand(message){
     if(message == "Start"){
-			startPDF();
-		}
+	startPDF();
+    }
     else if(message.indexOf("https://dl") != -1){
         getFile(message);
     }
