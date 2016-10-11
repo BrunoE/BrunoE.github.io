@@ -1,27 +1,19 @@
+var myWorker;
+
 function whatCommand(message){
 	if(message == "file"){
-		
+		myWorker = new Worker("threads/FileParse.js");
 	}
 	else if(message == "laser"){
-	
+		myWorker = new Worker("threads/LaserMode.js");
 	}
-	else if(message == "draw){
-	
+	else if(message == "draw"){
+		myWorker = new Worker("threads/LaserMode.js");
 	}
-    
-   else if(message == "backwards"){
-       openPrevPage()
-   }
-    else if(message == "forwards"){
-        openNextPage()
-    }
+	else if(message == "exit"){
+		myWorker.terminate();
+	}
+	else{
+		myWorker.postMessage(message);
+	}
 }
-
-function
-
-if(message == "Start"){
-	startPDF();
-    }
-    else if(message.indexOf("https://dl") != -1){
-        getFile(message);
-    }
