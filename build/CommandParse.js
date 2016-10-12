@@ -2,6 +2,7 @@ var myWorker;
 
 function whatCommand(message){
 	if(message == "file"){
+		console.log(message);
 		myWorker = new Worker('threads/FileParse.js');
 		setListener();
 	}
