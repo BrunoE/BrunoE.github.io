@@ -16,3 +16,4 @@ self.addEventListener('message', function(e) {
     getBinaryData(data);
   }
 }, false);
+
