@@ -23,6 +23,6 @@ function whatCommand(message){
 
 function setListener(){
 	myWorker.addEventListener('message', function(e) {
-        	document.getElementById('conexao').textContent = e.data;
+        	document.getElementById('Conexao').textContent = e.data;
 	}, false);
 }
