@@ -15,6 +15,7 @@ function whatCommand(message){
 		whatMode = 0;
 	}
 	else{
+		console.log(whatMode);
 		Parse(message, whatMode);
 	}
 }
