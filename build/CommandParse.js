@@ -51,3 +51,4 @@ LaserParse(message){
 	else if(message == "backwards"){
 		openPrevPage();
 	}
+}
