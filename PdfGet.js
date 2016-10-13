@@ -75,7 +75,6 @@ function getURLData (url) {
     request.onreadystatechange = function(oEvent){
         if (request.readyState === 4){
             if (request.status === 200){
-                console.log(request.response);
                 callGetDocument(request.response);
             }
             else{
