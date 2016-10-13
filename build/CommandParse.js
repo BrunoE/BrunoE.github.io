@@ -1,29 +1,53 @@
 var myWorker;
+var whatMode = 0;
 
 function whatCommand(message){
 	if(message == "file"){
-		console.log(message);
-		myWorker = new Worker('threads/FileParse.js');
-		setListener();
+		whatMode = 1;
 	}
 	else if(message == "laser"){
-		myWorker = new Worker('threads/LaserMode.js');
-		setListener()
+		whatMode = 2;
 	}
 	else if(message == "draw"){
-		myWorker = new Worker('threads/LaserMode.js');
-		setListener()
+		whatMode = 3;
 	}
 	else if(message == "exit"){
-		myWorker.terminate();
+		whatMode = 0;
 	}
 	else{
-		myWorker.postMessage(message);
+		Parse(message, whatMode);
 	}
 }
 
-function setListener(){
-	myWorker.addEventListener('message', function(e) {
-        	document.getElementById('Conexao').textContent = e.data;
-	}, false);
+function Parse(message, value){
+	switch(value){
+		case 1:
+			FileParse(message);
+			break;
+		case 2:
+			LaserParse(message);
+			break;
+		case 3:
+			//DrawParse(message);
+			break;
+		 default:
+			break;
+	}
 }
+
+function FileParse(message){
+	if(data == "start"){
+		startPDF();
+	}
+	else if(data.indexOf("https://dl") != -1){
+		getBinaryData(message);
+	}
+}
+
+LaserParse(message){
+	if(message == "forwards"){
+		openNextPage()
+	}
+	else if(message == "backwards"){
+		openPrevPage();
+	}
