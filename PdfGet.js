@@ -11,7 +11,7 @@ var maxPages = 0;
 var pdfArray = new Array();
 
 function getFile(url){
-    getBinaryData(url);
+    getURLData(url);
 }
 
 function getPages(){
@@ -65,36 +65,32 @@ function changePage(page){
     page.render(renderContext);
 }
 
-function getBinaryData (url) {
+function getURLData (url) {
 
-    var xhr = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
 
-    xhr.open('GET', url, true);
-    xhr.responseType = 'arraybuffer';
+    request.open('GET', url, true);
+    request.responseType = 'arraybuffer';
     
-    xhr.onreadystatechange = function(oEvent){
-        if (xhr.readyState === 4){
-            if (xhr.status === 200){
-                console.log(xhr.response);
-                callGetDocument(xhr.response);
+    request.onreadystatechange = function(oEvent){
+        if (request.readyState === 4){
+            if (request.status === 200){
+                console.log(request.response);
+                callGetDocument(request.response);
             }
             else{
-                console.log("Error", xhr.statusText);
+                console.log("Error", request.statusText);
             }
         }
     }
-
-    xhr.send();
+    request.send();
 }
 
 function callGetDocument (response) {
 
     PDFJS.getDocument(response).then(function getPdfHelloWorld(pdf) {
         pdfFile = pdf;
-
-        //How many pages it has
         maxPages = pdfFile.numPages;
-        log(maxPages);
         getPages();
     });
 }
