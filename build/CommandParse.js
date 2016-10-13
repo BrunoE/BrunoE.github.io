@@ -36,10 +36,10 @@ function Parse(message, value){
 }
 
 function FileParse(message){
-	if(data == "start"){
+	if(message == "start"){
 		startPDF();
 	}
-	else if(data.indexOf("https://dl") != -1){
+	else if(message.indexOf("https://dl") != -1){
 		getBinaryData(message);
 	}
 }
