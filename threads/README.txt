@@ -1,1 +1,0 @@
-Isto é uma avizo.
