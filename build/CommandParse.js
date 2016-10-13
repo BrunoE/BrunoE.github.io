@@ -44,7 +44,7 @@ function FileParse(message){
 	}
 }
 
-LaserParse(message){
+function LaserParse(message){
 	if(message == "forwards"){
 		openNextPage()
 	}
