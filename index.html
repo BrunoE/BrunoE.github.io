@@ -15,8 +15,8 @@
 <script src="build/CommandParse.js"></script>
 	
 <script type="text/javascript">
-    var app_id = "1AA02BA5";
-    var namespace = "urn:x-cast:com.example.chrome_send_world_2";
+    var appID = "1AA02BA5";
+    var channel = "urn:x-cast:com.example.chrome_send_world_2";
     var messageReceived;
     
     function log(str){
@@ -31,13 +31,13 @@
 	    root.appendChild(document.createElement("br"));
     }
 	
-	function onChannelOpened(event){
+	function onSenderConnected(event){
 		log("onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length);
 		var string = "onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length;
 		document.getElementById("Conexao").innerHTML = string.toString();
 	}
 	
-	function onChannelClosed(event){
+	function onSenderDisconnected(event){
 		log("onChannelClosed. Total number of channels: " + window.castReceiverManager.getSenders().length);
 		if (window.castReceiverManager.getSenders().length == 0) window.close();
 	}
@@ -51,25 +51,22 @@
 		whatCommand(message);	
 	}
 	
-	function onLoad(){
-		log("document loaded");
-		
+	function onLoadCast(){
 		window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-		window.castReceiverManager.onSenderConnected = onChannelOpened;
-		window.castReceiverManager.onSenderDisconnected = onChannelClosed;
+		window.castReceiverManager.onSenderConnected = onSenderConnected;
+		window.castReceiverManager.onSenderDisconnected = onSenderDisconnected;
 		
-		window.customMessageBus = window.castReceiverManager.getCastMessageBus(namespace);
+		window.customMessageBus = window.castReceiverManager.getCastMessageBus(channel);
 		window.customMessageBus.onMessage = onMessage;
 		
 		window.castReceiverManager.start();
-		log("cast started");
 	}
 	
 	function broadcast(message){
 		window.customMessageBus.broadcast(message);
 	}
 	
-	window.addEventListener("load", onLoad);
+	window.addEventListener("load", onLoadCast);
 </script>
 
 <body>
