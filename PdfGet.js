@@ -20,7 +20,7 @@ function getPages(){
     
     for(i=0;i<maxPages;i++){
         page = i+1;
-        pdfFile.getPage(page).then(function getPageHelloWorld(page) {
+        pdfFile.getPage(page).then(function getCertainPage(page) {
             pdfArray.push(page);
         });
     }
