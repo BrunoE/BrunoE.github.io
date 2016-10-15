@@ -6,7 +6,7 @@ PDFJS.workerSrc = 'build/pdf.worker.js';
 
 var pdf;
 var pdfFile;
-var currPageNumber = 1;
+var currentPage = 0;
 var numPages = 0;
 var pdfArray = new Array();
 
@@ -27,16 +27,16 @@ function getPages(){
 }
 
 function openNextPage() {
-    if (currPageNumber < numPages) {
-        currPageNumber = currPageNumber + 1;
-        changePage(currPageNumber);
+    if (currentPage < numPages) {
+        currentPage = currentPage + 1;
+        changePage(currentPage);
     }
 }
 
 function openPrevPage() {
-    if (currPageNumber > 0) {
-        currPageNumber = currPageNumber - 1;
-        changePage(currPageNumber);
+    if (currentPage > 0) {
+        currentPage = currentPage - 1;
+        changePage(currentPage);
     }
 }
 
