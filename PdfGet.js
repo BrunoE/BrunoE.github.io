@@ -45,24 +45,22 @@ function startPDF(){
 }
 
 function changePage(page){
-    page = pdfArray[page];
-
-    // Fetch the first page
-    var scale = 0.8;
-    var viewport = page.getViewport(scale);
-
-    // Prepare canvas using PDF page dimensions
-    var canvas = document.getElementById('canvas_1');
+    var data = pdfArray[page];
+    
+    var scale = 1.0;
+    var viewport = data.getViewport(scale);
+    
+    var canvas = document.getElementById('canvasPDF');
     var context = canvas.getContext('2d');
+    
     canvas.height = viewport.height;
     canvas.width = viewport.width;
 
-    // Render PDF page into canvas context
-    var renderContext = {
+    var contextObject = {
         canvasContext: context,
         viewport: viewport
     };
-    page.render(renderContext);
+    data.render(contextObject);
 }
 
 function getURLData (url) {
