@@ -7,7 +7,7 @@ PDFJS.workerSrc = 'build/pdf.worker.js';
 var pdf;
 var pdfFile;
 var currPageNumber = 1;
-var maxPages = 0;
+var numPages = 0;
 var pdfArray = new Array();
 
 function getFile(url){
@@ -18,7 +18,7 @@ function getPages(){
     var i;
     var page;
     
-    for(i=0;i<maxPages;i++){
+    for(i=0;i<numPages;i++){
         page = i+1;
         pdfFile.getPage(page).then(function getCertainPage(page) {
             pdfArray.push(page);
@@ -27,7 +27,7 @@ function getPages(){
 }
 
 function openNextPage() {
-    if (currPageNumber < maxPages) {
+    if (currPageNumber < numPages) {
         currPageNumber = currPageNumber + 1;
         changePage(currPageNumber);
     }
@@ -87,9 +87,9 @@ function getURLData (url) {
 
 function callGetDocument (response) {
 
-    PDFJS.getDocument(response).then(function getPdfHelloWorld(pdf) {
-        pdfFile = pdf;
-        maxPages = pdfFile.numPages;
+    PDFJS.getDocument(response).then(function getPDF(pdfObject) {
+        pdfFile = pdfObject;
+        numPages = pdfFile.numPages;
         getPages();
     });
 }
