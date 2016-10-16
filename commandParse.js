@@ -15,7 +15,6 @@ function whatCommand(message){
 		whatMode = 0;
 	}
 	else{
-		console.log(whatMode);
 		Parse(message, whatMode);
 	}
 }
@@ -47,7 +46,7 @@ function FileParse(message){
 
 function LaserParse(message){
 	if(message == "forwards"){
-		openNextPage()
+		openNextPage();
 	}
 	else if(message == "backwards"){
 		openPrevPage();
@@ -62,7 +61,7 @@ function DrawParse(message){
 		openPrevPage();
 	}
 	else if(message == "swipeRight"){
-		openNextPage()
+		openNextPage();
 	}
 	else if(message == "pressUp"){
 		
