@@ -29,7 +29,7 @@ function Parse(message, value){
 			LaserParse(message);
 			break;
 		case 3:
-			//DrawParse(message);
+			DrawParse(message);
 			break;
 		 default:
 			break;
@@ -51,5 +51,26 @@ function LaserParse(message){
 	}
 	else if(message == "backwards"){
 		openPrevPage();
+	}
+	else{
+		
+	}
+}
+
+function DrawParse(message){
+	if(message == "swipeLeft"){
+		openPrevPage();
+	}
+	else if(message == "swipeRight"){
+		openNextPage()
+	}
+	else if(message == ""){
+		
+	}
+	else if(message == ""){
+	
+	}
+	else if(message == ""){
+	
 	}
 }
