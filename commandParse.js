@@ -64,13 +64,13 @@ function DrawParse(message){
 	else if(message == "swipeRight"){
 		openNextPage()
 	}
-	else if(message == ""){
+	else if(message == "pressUp"){
 		
 	}
-	else if(message == ""){
+	else if(message == "pressLong"){
 	
 	}
-	else if(message == ""){
+	else if(message.indexOf("move") != -1){
 	
 	}
 }
