@@ -12,39 +12,21 @@
 <script src="build/pdf.js"></script>
 <script src="compatibility.js"></script>	
 <script src="PdfGet.js"></script>
-<script src="build/CommandParse.js"></script>
+<script src="CommandParse.js"></script>
 	
 <script type="text/javascript">
-    var appID = "1AA02BA5";
     var channel = "urn:x-cast:com.example.chrome_send_world_2";
-    var messageReceived;
-    
-    function log(str){
-	    console.log(str);
-	    
-	    var newSpan = document.createElement("span");
-	    var newContent = document.createTextNode(str);
-	    newSpan.appendChild(newContent);
-	    
-	    var root = document.getElementById("root");
-	    root.appendChild(newSpan);
-	    root.appendChild(document.createElement("br"));
-    }
 	
 	function onSenderConnected(event){
-		log("onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length);
 		var string = "onChannelOpened. Total number of channels: " + window.castReceiverManager.getSenders().length;
 		document.getElementById("Conexao").innerHTML = string.toString();
 	}
 	
 	function onSenderDisconnected(event){
-		log("onChannelClosed. Total number of channels: " + window.castReceiverManager.getSenders().length);
 		if (window.castReceiverManager.getSenders().length == 0) window.close();
 	}
 	
-	function onError(){
-		log("onError");
-	}
+	function onError(){}
 	
 	function onMessage(event){
 		var message = event.data;
@@ -70,13 +52,14 @@
 </script>
 
 <body>
-	<output id="Conexao"></output>
-	<p></p>
-	<canvas id="canvasPDF" style="border:1px  solid white" ></canvas>
-	<p></p>
-	<div id="root" style="position:absolute; top:0; left:0; height:50%; width:50%; color:#FFFFFF;" />
-        chromecast demo<br>
-    </div>
+<output id="Conexao" style="float: right;"></output>
+	
+<div style="position: relative;">
+        <canvas id="canvasPDF"  style="position: absolute; left: 0; top: 0; z-index: 0; "></canvas>
+        <canvas id="canvasDraw" style="position: absolute; left: 0; top: 0; z-index: 1; "></canvas>
+        <canvas id="canvasLaser" style="position: absolute; left: 0; top: 0; z-index: 2; "></canvas>
+</div>
+
 </body>
 
 </html>
