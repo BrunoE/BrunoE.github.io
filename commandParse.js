@@ -1,4 +1,3 @@
-var myWorker;
 var whatMode = 0;
 
 function whatCommand(message){
