@@ -14,27 +14,27 @@ function whatCommand(message){
 		whatMode = 0;
 	}
 	else{
-		Parse(message, whatMode);
+		whatParse(message, whatMode);
 	}
 }
 
-function Parse(message, value){
+function whatParse(message, value){
 	switch(value){
 		case 1:
-			FileParse(message);
+			fileParse(message);
 			break;
 		case 2:
-			LaserParse(message);
+			laserParse(message);
 			break;
 		case 3:
-			DrawParse(message);
+			drawParse(message);
 			break;
 		 default:
 			break;
 	}
 }
 
-function FileParse(message){
+function fileParse(message){
 	if(message == "Start"){
 		startPDF();
 	}
@@ -43,7 +43,7 @@ function FileParse(message){
 	}
 }
 
-function LaserParse(message){
+function laserParse(message){
 	if(message == "forwards"){
 		openNextPage();
 	}
@@ -55,7 +55,7 @@ function LaserParse(message){
 	}
 }
 
-function DrawParse(message){
+function drawParse(message){
 	if(message == "swipeLeft"){
 		openPrevPage();
 	}
