@@ -35,7 +35,7 @@ function whatParse(message, value){
 }
 
 function fileParse(message){
-	if(message == "Start"){
+	if(message == "start"){
 		startPDF();
 	}
 	else if(message.indexOf("https://dl") != -1){
