@@ -6,12 +6,14 @@ function whatCommand(message){
 	}
 	else if(message == "laser"){
 		whatMode = 2;
+		initLaser();
 	}
 	else if(message == "draw"){
 		whatMode = 3;
 	}
 	else if(message == "exit"){
 		whatMode = 0;
+		initLaser();
 	}
 	else{
 		whatParse(message, whatMode);
