@@ -42,6 +42,7 @@ function openPrevPage() {
 
 function startPDF(){
     changePage(0);
+    pageFlag = 1;
 }
 
 function changePage(page){
