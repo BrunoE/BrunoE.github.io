@@ -41,7 +41,7 @@ function fileParse(message){
 		startPDF();
 	}
 	else if(message.indexOf("https://dl") != -1){
-		getBinaryData(message);
+		getURLData(message);
 	}
 }
 
