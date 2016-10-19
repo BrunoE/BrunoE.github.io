@@ -62,6 +62,8 @@ function changePage(page){
         viewport: viewport
     };
     data.render(contextObject);
+    
+     reloadLaser(canvas.width, canvas.height);
 }
 
 function getURLData (url) {
