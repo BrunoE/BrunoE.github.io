@@ -4,6 +4,7 @@
 
 var flagDraw = false;
 var flagDrawn = false;
+var saveCanvas = new Array();
 
 function movePoint(message){
 
