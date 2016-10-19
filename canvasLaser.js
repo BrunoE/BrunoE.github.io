@@ -48,11 +48,27 @@ function reloadLaser(width, height){
     }
 }
 
-function moveLaser(keycode){
+function moveLaser(message, index){
 
-    //var canvas2 = document.getElementById('canvasLaser');
-    //var context2 = canvas2.getContext('2d');
+    var canvasLaser = document.getElementById('canvasLaser');
+    var contextLaser = canvasLaser.getContext('2d');
+    
+    var xString = message.substring(0, index);
+    index = index + 1;
+    var yString = message.substring(index);
+    
+    var xPercentage = parseFloat(xString, 10);
+    var yPercentage = parseFloat(yString, 10);
+    
+    xPercentage = (xPercentage*1.0) / 100;
+    yPercentage = (yPercentage*1.0) / 100;
+    
+    xLaser = laserWidth * xPercentage;
+    yLaser = laserHeight * yPercentage;
+    
+    xLaser = Math.floor( xLaser );
+    yLaser = Math.floor( yLaser );
 
-    //context2.clearRect(0, 0, laserWidth, laserHeight);
-    //ctx2.drawImage(laserImage, xLaser, yLaser);
+    contextLaser.clearRect(0, 0, laserWidth, laserHeight);
+    contextLaser.drawImage(laserImage, xLaser, yLaser);
 }
