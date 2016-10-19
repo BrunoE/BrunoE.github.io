@@ -66,12 +66,15 @@ function drawParse(message){
 		openNextPage();
 	}
 	else if(message == "pressUp"){
-		
+		flagDraw = false;
 	}
 	else if(message == "pressLong"){
-	
+		flagDraw = true;
 	}
 	else if(message.indexOf("move") != -1){
-	
+		movePoint(message);
+	}
+	else if(message.indexOf("color") != -1){
+		changeColor(message);
 	}
 }
