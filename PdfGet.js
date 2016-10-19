@@ -8,6 +8,7 @@ var pdf;
 var pdfFile;
 var currentPage = 0;
 var numPages = 0;
+var savedCanvas = 0;
 var pdfArray = new Array();
 
 function getFile(url){
@@ -28,13 +29,18 @@ function getPages(){
 
 function openNextPage() {
     if (currentPage < numPages) {
-        currentPage = currentPage + 1;
+        saveChanges(currentPage);
+        currentPage = currentPage + 1
+        if(currentPage > savedCanvas){
+            savedCanvas = savedCanvas + 1;
+        }
         changePage(currentPage);
     }
 }
 
 function openPrevPage() {
     if (currentPage > 0) {
+        saveChanges(currentPage);
         currentPage = currentPage - 1;
         changePage(currentPage);
     }
