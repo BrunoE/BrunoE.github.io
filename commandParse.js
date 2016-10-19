@@ -53,7 +53,7 @@ function laserParse(message){
 		openPrevPage();
 	}
 	else{
-		
+		moveLaser(message);
 	}
 }
 
