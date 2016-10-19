@@ -52,7 +52,7 @@ function laserParse(message){
 	else if(message == "backwards"){
 		openPrevPage();
 	}
-	else{
+	else if (message.indexOf("|") != -1){
 		moveLaser(message);
 	}
 }
