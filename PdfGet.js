@@ -69,7 +69,26 @@ function changePage(page){
     };
     data.render(contextObject);
     
-     reloadLaser(canvas.width, canvas.height);
+    reloadLaser(canvas.width, canvas.height);
+    
+    var canvasDraw = document.getElementById('canvasDraw');
+    var contextDraw = canvasDraw.getContext('2d');
+    canvasDraw.height = viewport.height;
+    canvasDraw.width = viewport.width;
+    
+    if(savedCanvas > page){
+        var imageDraw = new Image();
+        imageDraw.onload = function(){
+            contextDraw.drawImage(imageDraw,0,0);
+        };
+        imageDraw.src = saveCanvas[page];
+    }
+    
+    if(page == 0){
+        var canvasLaser = document.getElementById('canvasLaser');
+        canvasLaser.height = viewport.height;
+        canvasLaser.width = viewport.width;
+    }
 }
 
 function getURLData (url) {
