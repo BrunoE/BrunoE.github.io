@@ -53,8 +53,11 @@ function laserParse(message){
 		openPrevPage();
 	}
 	else if (message.indexOf("|") != -1){
+		console.log(message);
 		var index = message.indexOf("|");
-		moveLaser(message, index);
+		if(index != 0){
+			moveLaser(message, index);
+		}
 	}
 }
 
