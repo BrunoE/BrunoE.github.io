@@ -4,6 +4,7 @@ var laserFlag = 0;
 var laserImage = new Image();
 var pageFlag = 0;
 var laserWidth, laserHeight;
+var pointerWidth, pointerHeight;
 
 function initLaser(){
     if(pageFlag == 1){
@@ -38,11 +39,14 @@ function reloadLaser(width, height){
         laserImage.onload = function () {
             var x = width / 2;
             var y = height / 2;
+            
+            pointerWidth = this.width/2;
+            pointerHeight = this.height/2;
+            
+            xLaser = x - pointerWidth;
+            yLaser = y - pointerHeight;
 
-            xLaser = x;
-            yLaser = y;
-
-            contextLaser.drawImage(laserImage, x, y);
+            contextLaser.drawImage(laserImage, x - pointerWidth, y - pointerHeight);
         }
         laserImage.src = 'laser_pointer.png';
     }
