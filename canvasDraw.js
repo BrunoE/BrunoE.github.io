@@ -8,7 +8,7 @@ var saveCanvas = new Array();
 var color = "black";
 
 function movePoint(message){
-
+  flagDrawn = true;
 }
 
 function changeColor(message){
