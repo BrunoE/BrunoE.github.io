@@ -24,3 +24,4 @@ function saveChanges(currentPageNumber){
         saveCanvas.splice(currentPageNumber, 1);
         saveCanvas.splice(currentPageNumber, 0, drawnSlide);
     }
+}
