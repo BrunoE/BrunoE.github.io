@@ -5,13 +5,16 @@
 var flagDraw = false;
 var flagDrawn = false;
 var saveCanvas = new Array();
+var color = "black";
 
 function movePoint(message){
 
 }
 
 function changeColor(message){
-  
+  var index = message.indexOf("-");
+  index = index + 1;
+  color = message.substring(index);
 }
 
 function saveChanges(currentPageNumber){
