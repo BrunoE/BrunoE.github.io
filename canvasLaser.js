@@ -42,7 +42,7 @@ function reloadLaser(width, height){
             xLaser = x;
             yLaser = y;
 
-            context2.drawImage(laserImage, x, y);
+            contextLaser.drawImage(laserImage, x, y);
         }
         laserImage.src = 'laser_pointer.png';
     }
