@@ -48,7 +48,7 @@ function reloadLaser(width, height){
 
             contextLaser.drawImage(laserImage, x - pointerWidth, y - pointerHeight);
         }
-        laserImage.src = 'laser_pointer.png';
+        laserImage.src = 'ledOrange.png';
     }
 }
 
