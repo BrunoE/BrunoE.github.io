@@ -9,10 +9,12 @@ var flagDrawMouse = 0;
 var saveCanvas = new Array();
 var drawImage = new Image();
 var color = "black";
+var lineWidth = 2;
 
 var pointerDrawWidth, pointerDrawHeight;
 var drawWidth, drawHeight;
 var xDraw, yDraw;
+var xDrawPrevious, yDrawPrevious;
 
 function initDrawMouse(){
     if(pageFlag == 1){
@@ -61,8 +63,49 @@ function reloadDraw(width, height){
 }
 
 function movePoint(message){
-  flagDrawn = true;
+    var canvasDraw = document.getElementById('canvasPointer');
+    var contextDraw = canvasDraw.getContext('2d');
+    canvasDraw.height = height;
+    canvasDraw.width = width;
+    
+    var index1 = message.indexOf(":");
+    index1 = index1 + 1;
+    var index2 = message.indexOf("-");
+    index2 = index2 + 1;
+    
+    var xString = message.substring(index1, index2);
+    var yString = message.substring(index2);
+    
+    var xDistance = parseInt(xString, 10);
+    var yDistance = parseInt(yString, 10);
+    
+    xDrawPrevious = xDraw;
+    yDrawPrevious = yDraw;
+    
+     xDraw = xDraw + xDistance;
+     yDraw = yDraw + yDistance;
+    
+     contextDraw.clearRect(0, 0, drawWidth, drawHeight);
+     contextDraw.drawImage(DrawImage, xLaser, yLaser);
+    
+    if(flagDraw){
+        draw();
+    }
 }
+
+function draw(){
+    var canvasDrawn = document.getElementById('canvasDraw');
+    var contextDrawn = canvasDrawn.getContext("2d");
+    
+    contextDrawn.beginPath();
+    contextDrawn.moveTo(xDrawPrevious, yDrawPrevious);
+    contextDrawn.lineTo(xDraw, yDraw);
+    contextDrawn.strokeStyle = color;
+    contextDrawn.lineWidth = lineWidth;
+    contextDrawn.stroke();
+    contextDrawn.closePath();
+}
+
 
 function changeColor(message){
   var index = message.indexOf("-");
