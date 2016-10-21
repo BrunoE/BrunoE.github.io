@@ -68,6 +68,7 @@ function laserParse(message){
 }
 
 function drawParse(message){
+	console.log("Chegou Aqui");
 	if(message == "swipeLeft"){
 		openPrevPage();
 	}
@@ -82,6 +83,7 @@ function drawParse(message){
 		flagDrawn = true;
 	}
 	else if(message.indexOf("move") != -1){
+		console.log("Chegou Aqui 2");
 		movePoint(message);
 	}
 	else if(message.indexOf("color") != -1){
