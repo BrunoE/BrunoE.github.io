@@ -71,10 +71,13 @@ function movePoint(message){
     var index1 = message.indexOf(":");
     index1 = index1 + 1;
     var index2 = message.indexOf("-");
-    index2 = index2 + 1;
     
     var xString = message.substring(index1, index2);
+    index2 = index2 + 1;
     var yString = message.substring(index2);
+
+    console.log(xString);
+    console.log(yString);
     
     var xDistance = parseInt(xString, 10);
     var yDistance = parseInt(yString, 10);
