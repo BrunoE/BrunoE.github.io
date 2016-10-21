@@ -70,6 +70,7 @@ function changePage(page){
     data.render(contextObject);
     
     reloadLaser(canvas.width, canvas.height);
+    reloadDraw((canvas.width, canvas.height);
     
     var canvasDraw = document.getElementById('canvasDraw');
     var contextDraw = canvasDraw.getContext('2d');
