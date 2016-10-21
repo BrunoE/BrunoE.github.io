@@ -74,10 +74,10 @@ function drawParse(message){
 	else if(message == "swipeRight"){
 		openNextPage();
 	}
-	else if(message == "pressUp"){
+	else if(message == "pressLong"){
 		flagDraw = false;
 	}
-	else if(message == "pressLong"){
+	else if(message == "doubleTap"){
 		flagDraw = true;
 		flagDrawn = true;
 	}
