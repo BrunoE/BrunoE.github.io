@@ -27,7 +27,7 @@ function initDrawMouse(){
             flagDrawMouse = 0;
             
             var canvasDraw = document.getElementById('canvasPointer');
-            var contextDraw = canvasLaser.getContext("2d");
+            var contextDraw = canvasDraw.getContext("2d");
             
             contextDraw.clearRect(0, 0, canvasDraw.width, canvasDraw.height);
         }
@@ -38,7 +38,7 @@ function reloadDraw(width, height){
     if(flagDrawMouse == 1) {
         
         var canvasDraw = document.getElementById('canvasPointer');
-        var contextDraw = canvasLaser.getContext('2d');
+        var contextDraw = canvasDraw.getContext('2d');
         canvasDraw.height = height;
         canvasDraw.width = width;
 
