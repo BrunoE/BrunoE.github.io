@@ -87,9 +87,9 @@ function movePoint(message){
      yDraw = yDraw + yDistance;
     
      contextDraw.clearRect(0, 0, drawWidth, drawHeight);
-     contextDraw.drawImage(DrawImage, xLaser, yLaser);
+     contextDraw.drawImage(DrawImage, xDraw, yDraw);
     
-    if(flagDraw){
+    if(flagDraw == true){
         draw();
     }
 }
