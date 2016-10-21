@@ -13,9 +13,13 @@ function whatCommand(message){
 		initDrawMouse();
 	}
 	else if(message == "exit"){
+		if(whatMode == 2){
+			initLaser();
+		}
+		else if(whatMode == 3){
+			initDrawMouse();
+		}
 		whatMode = 0;
-		initLaser();
-		initDrawMouse();
 	}
 	else{
 		whatParse(message, whatMode);
