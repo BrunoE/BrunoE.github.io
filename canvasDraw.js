@@ -65,8 +65,6 @@ function reloadDraw(width, height){
 function movePoint(message){
     var canvasDraw = document.getElementById('canvasPointer');
     var contextDraw = canvasDraw.getContext('2d');
-    canvasDraw.height = height;
-    canvasDraw.width = width;
     
     var index1 = message.indexOf(":");
     index1 = index1 + 1;
