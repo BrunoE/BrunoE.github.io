@@ -11,7 +11,6 @@ var drawImage = new Image();
 var color = "black";
 
 var pointerDrawWidth, pointerDrawHeight;
-var laserWidth, laserHeight;
 var drawWidth, drawHeight;
 var xDraw, yDraw;
 
@@ -55,7 +54,7 @@ function reloadDraw(width, height){
             xDraw = x - pointerDrawWidth;
             yDraw = y - pointerDrawHeight;
 
-            contextLaser.drawImage(drawImage, x - pointerDrawWidth, y - pointerDrawHeight);
+            contextDraw.drawImage(drawImage, x - pointerDrawWidth, y - pointerDrawHeight);
         }
         drawImage.src = 'ledBlue.png';
     }
