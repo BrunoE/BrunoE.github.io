@@ -85,7 +85,7 @@ function changePage(page){
     }
     
     if(page == 0){
-        var canvasLaser = document.getElementById('canvasLaser');
+        var canvasLaser = document.getElementById('canvasPointer');
         canvasLaser.height = viewport.height;
         canvasLaser.width = viewport.width;
     }
