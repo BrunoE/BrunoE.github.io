@@ -17,7 +17,7 @@ function initLaser(){
         else if(laserFlag == 1){
             laserFlag = 0;
             
-            var canvasLaser = document.getElementById('canvasLaser');
+            var canvasLaser = document.getElementById('canvasPointer');
             var contextLaser = canvasLaser.getContext("2d");
             
             contextLaser.clearRect(0, 0, canvasLaser.width, canvasLaser.height);
@@ -28,7 +28,7 @@ function initLaser(){
 function reloadLaser(width, height){
     if(laserFlag == 1) {
         
-        var canvasLaser = document.getElementById('canvasLaser');
+        var canvasLaser = document.getElementById('canvasPointer');
         var contextLaser = canvasLaser.getContext('2d');
         canvasLaser.height = height;
         canvasLaser.width = width;
@@ -54,7 +54,7 @@ function reloadLaser(width, height){
 
 function moveLaser(message, index){
 
-    var canvasLaser = document.getElementById('canvasLaser');
+    var canvasLaser = document.getElementById('canvasPointer');
     var contextLaser = canvasLaser.getContext('2d');
     
     var xString = message.substring(0, index);
