@@ -79,6 +79,7 @@ function drawParse(message){
 	}
 	else if(message == "pressLong"){
 		flagDraw = true;
+		flagDrawn = true;
 	}
 	else if(message.indexOf("move") != -1){
 		movePoint(message);
