@@ -68,7 +68,7 @@ function movePoint(message){
     
     var index1 = message.indexOf(":");
     index1 = index1 + 1;
-    var index2 = message.indexOf("-");
+    var index2 = message.indexOf("|");
     
     var xString = message.substring(index1, index2);
     index2 = index2 + 1;
