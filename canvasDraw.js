@@ -57,7 +57,7 @@ function reloadDraw(width, height){
 
             contextLaser.drawImage(drawImage, x - pointerDrawWidth, y - pointerDrawHeight);
         }
-        drawImage.src = 'blueOrange.png';
+        drawImage.src = 'ledBlue.png';
     }
 }
 
