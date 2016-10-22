@@ -58,10 +58,9 @@ function laserParse(message){
 	else if(message == "backwards"){
 		openPrevPage();
 	}
-	else if (message.indexOf("|") != -1){
-		console.log(message);
+	else{
 		var index = message.indexOf("|");
-		if(index != 0){
+		if(index > 0){
 			moveLaser(message, index);
 		}
 	}
