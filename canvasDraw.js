@@ -16,7 +16,7 @@ var drawWidth, drawHeight;
 var xDraw, yDraw;
 var xDrawPrevious, yDrawPrevious;
 
-function initDrawMouse(){
+function toggleDrawMouse(){
     if(pageFlag == 1){
         if(flagDrawMouse == 0){
             flagDrawMouse = 1;
