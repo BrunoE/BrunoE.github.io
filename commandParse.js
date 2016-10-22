@@ -56,7 +56,7 @@ function laserParse(message){
 		openNextPage();
 	}
 	else if(message == "backwards"){
-		openPrevPage();
+		openPreviousPage();
 	}
 	else{
 		var index = message.indexOf("|");
@@ -68,7 +68,7 @@ function laserParse(message){
 
 function drawParse(message){
 	if(message == "swipeLeft"){
-		openPrevPage();
+		openPreviousPage();
 	}
 	else if(message == "swipeRight"){
 		openNextPage();
