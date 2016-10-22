@@ -6,18 +6,18 @@ function whatCommand(message){
 	}
 	else if(message == "laser"){
 		whatMode = 2;
-		initLaser();
+		toggleLaser();
 	}
 	else if(message == "draw"){
 		whatMode = 3;
-		initDrawMouse();
+		toggleDrawMouse();
 	}
 	else if(message == "exit"){
 		if(whatMode == 2){
-			initLaser();
+			toggleLaser();
 		}
 		else if(whatMode == 3){
-			initDrawMouse();
+			toggleDrawMouse();
 		}
 		whatMode = 0;
 	}
