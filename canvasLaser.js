@@ -6,7 +6,7 @@ var pageFlag = 0;
 var laserWidth, laserHeight;
 var pointerWidth, pointerHeight;
 
-function initLaser(){
+function toggleLaser(){
     if(pageFlag == 1){
         if(laserFlag == 0){
             laserFlag = 1;
