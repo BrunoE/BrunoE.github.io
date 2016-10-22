@@ -62,14 +62,14 @@ function moveLaser(message, index){
     var xPercentage = parseFloat(xString, 10);
     var yPercentage = parseFloat(yString, 10);
     
-    xPercentage = (xPercentage*1.0) / 100;
-    yPercentage = (yPercentage*1.0) / 100;
+    xPercentage = xPercentage / 100;
+    yPercentage = yPercentage / 100;
     
     var xLaser = laserWidth * xPercentage;
     var yLaser = laserHeight * yPercentage;
     
-    xLaser = Math.floor( xLaser );
-    yLaser = Math.floor( yLaser );
+    xLaser = Math.floor( xLaser ) - pointerWidth;
+    yLaser = Math.floor( yLaser ) - pointerHeight;
 
     contextLaser.clearRect(0, 0, laserWidth, laserHeight);
     contextLaser.drawImage(laserImage, xLaser, yLaser);
