@@ -38,7 +38,7 @@ function openNextPage() {
     }
 }
 
-function openPrevPage() {
+function openPreviousPage() {
     if (currentPage > 0) {
         saveChanges(currentPage);
         currentPage = currentPage - 1;
