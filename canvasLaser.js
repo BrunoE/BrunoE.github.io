@@ -1,5 +1,3 @@
-
-var xLaser, yLaser;
 var laserFlag = 0;
 var laserImage = new Image();
 var pageFlag = 0;
@@ -43,10 +41,10 @@ function reloadLaser(width, height){
             pointerWidth = this.width/2;
             pointerHeight = this.height/2;
             
-            xLaser = x - pointerWidth;
-            yLaser = y - pointerHeight;
+            var xLaser = x - pointerWidth;
+            var yLaser = y - pointerHeight;
 
-            contextLaser.drawImage(laserImage, x - pointerWidth, y - pointerHeight);
+            contextLaser.drawImage(laserImage, xLaser, yLaser);
         }
         laserImage.src = 'ledOrange.png';
     }
@@ -67,8 +65,8 @@ function moveLaser(message, index){
     xPercentage = (xPercentage*1.0) / 100;
     yPercentage = (yPercentage*1.0) / 100;
     
-    xLaser = laserWidth * xPercentage;
-    yLaser = laserHeight * yPercentage;
+    var xLaser = laserWidth * xPercentage;
+    var yLaser = laserHeight * yPercentage;
     
     xLaser = Math.floor( xLaser );
     yLaser = Math.floor( yLaser );
