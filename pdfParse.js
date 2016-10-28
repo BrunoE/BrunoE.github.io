@@ -85,7 +85,7 @@ function changePage(page){
     canvas1.height = viewport.height;
     canvas1.width = viewport.width;
     
-    loadDrawnCanvas(page);
+    loadDrawnCanvas(page, context1);
 
     if(page == 0){
         var canvasLaser = document.getElementById('canvasLaser');
