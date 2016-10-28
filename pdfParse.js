@@ -3,7 +3,7 @@
  */
 
 
-PDFJS.workerSrc = 'build/pdf.worker.js';
+pdfWorker.workerSrc = 'build/pdf.worker.js';
 
 var pdf;
 var pdfFile;
@@ -96,7 +96,7 @@ function changePage(page){
 
 function callGetDocument (url) {
 
-    PDFJS.getDocument(url).then(function getPdf(pdf) {
+    pdfWorker.getDocument(url).then(function getPdf(pdf) {
         pdfFile = pdf;
 
         //How many pages it has
