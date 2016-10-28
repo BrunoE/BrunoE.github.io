@@ -123,3 +123,13 @@ function changeColor(){
         document.getElementById("color").value="";
     }
 }
+
+function loadDrawnCanvas(page){
+    if(savedCanvas > page){
+        var imgDraw = new Image;
+        imgDraw.onload = function(){
+            context1.drawImage(imgDraw,0,0); // Or at whatever offset you like
+        };
+        imgDraw.src = saveCanvas[page];
+    }
+}
