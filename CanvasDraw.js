@@ -124,7 +124,7 @@ function changeColor(){
     }
 }
 
-function loadDrawnCanvas(page){
+function loadDrawnCanvas(page, context1){
     if(savedCanvas > page){
         var imgDraw = new Image;
         imgDraw.onload = function(){
