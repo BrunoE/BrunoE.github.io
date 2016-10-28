@@ -84,15 +84,8 @@ function changePage(page){
     var context1 = canvas1.getContext('2d');
     canvas1.height = viewport.height;
     canvas1.width = viewport.width;
-
-    if(savedCanvas > page){
-        var imgDraw = new Image;
-        imgDraw.onload = function(){
-            context1.drawImage(imgDraw,0,0); // Or at whatever offset you like
-        };
-        imgDraw.src = saveCanvas[page];
-    }
-
+    
+    loadDrawnCanvas(page);
 
     if(page == 0){
         var canvasLaser = document.getElementById('canvasLaser');
